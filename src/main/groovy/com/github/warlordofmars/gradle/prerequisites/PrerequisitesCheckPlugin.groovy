@@ -12,6 +12,8 @@ class PrerequisitesCheckPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.ext.prerequisites = [:]
         project.task('checkPrerequisites') {
+            description 'Checks whether or not given configured prerequisite executables can be found in the current build PATH'
+            group 'Prerequisites'
             doLast {
                 
                 project.prerequisites.each { prerequisite, installNotes ->
